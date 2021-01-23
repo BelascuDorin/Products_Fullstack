@@ -1,24 +1,17 @@
 const mongoose = require('mongoose');
 
-const ContactSchema = mongoose.Schema({
+const ProductSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
-    name: {
+    description: {
         type: String,
         required: true
     },
-    email: {
-        type: String,
+    price: {
+        type: Number,
         required: true
-    },
-    phone: {
-        type: String,
-    },
-    type: {
-        type: String,
-        default: 'personal'
     },
     date: {
         type: Date, 
@@ -26,4 +19,4 @@ const ContactSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('contact', ContactSchema);
+module.exports = mongoose.model('product', ProductSchema);
