@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, Fragment } from 'react';
 import Products from '../products/Products';
 //import ContactFilter from '../contacts/ContactFilter';
 import AuthContext from '../../context/auth/authContext';
@@ -10,14 +10,13 @@ const Home = () => {
 
     useEffect(() => {
         authContext.loadUser();
-        productContext.getContacts();
         // eslint-disable-next-line
     }, [])
 
     return (
-        <div >
+        <Fragment >
             <Products/>
-        </div>
+        </Fragment>
     )
 }
 

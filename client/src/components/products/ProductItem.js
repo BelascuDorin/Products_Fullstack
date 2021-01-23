@@ -1,47 +1,26 @@
-import React, { useContext } from 'react';
+import React, {useState, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import ProductContext from '../../context/products/productContext';
+import img from './card_1.jpeg'
 
-const ProductItem = ( {product} ) => {
-    const productContext = useContext(ProductContext);
-    const { deleteContact, setCurrent, clearCurrent } = productContext;
-
+const ProductItem = ( {index, product} ) => {
     const { description, price } = product;
 
-    const onDelete = () => {
-        //deleteContact(_id);
-        clearCurrent();
-    };
+    const [counter, setCounter] = useState(0);
 
     return (
-        <div className="card bg-light">
-            {description}
-            {price}
-            {/* <h3 className="text-primary text-left">
-                {name}{' '} 
-                <span style={{ float: 'right' }}
-                    className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}
-                >
-                    {type.charAt(0).toUpperCase(0) + type.slice(1)}
-                </span>
-            </h3>
-            <ul className="list">
-                {email && (
-                    <li>
-                        <i className="fas fa-envelope-open"></i> {email}
-                    </li>
-                )}
-                {phone && (
-                    <li>
-                        <i className="fas fa-phone"></i> {phone}
-                    </li>
-                )}
-            </ul>
-            <p>
-                <button className="btn btn-dark btn-sn" onClick={()=> setCurrent(product)}>Edit</button>
-                <button className="btn btn-danger btn-sn" onClick={onDelete} >Delete</button> */}
-            {/* </p> */}
-        </div>
+        <Fragment>
+            <div className="card bg-light product-item">
+                <img className="card-img-top" src={img} alt="Card image"></img>
+                <div className="card-body">
+                    {index === 0 ? <h2>Mauris ante est, interdum in fringilla vel, porta et risus. Proin condimentum, dolor at sagittis volutpat, enim</h2> : <h2>Yes sir</h2>}
+    
+                    {description}
+                </div>
+                <div className="card-footer d-flex justify-content-center" style={{backgroundColor: "black", color:"white"}}>
+                    ${price}
+                </div>
+            </div>
+        </Fragment>
     )
 };
 

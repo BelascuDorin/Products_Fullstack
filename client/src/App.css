@@ -394,3 +394,17 @@ table th {
 /*            */
 /* CUSTOM CSS */
 /*            */
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.product-item {
+  min-width: 32%;
+  max-width: 32%;
+  height: 100%;
+  border-radius: 1.5rem;
+  margin-left: auto;
+}

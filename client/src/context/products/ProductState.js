@@ -3,121 +3,37 @@ import axios from 'axios';
 import ProductContext from './productContext';
 import productReducer from './productReducer';
 import {
-    GET_CONTACTS,
-    ADD_CONTACT,
-    CONTACT_ERROR,
-    DELETE_CONTACT,
-    SET_CURRENT,
-    CLEAR_CURRENT,
-    UPDATE_CONTACT,
-    FILTER_CONTACTS,
-    CLEAR_FILTER,
-    CLEAR_CONTACTS,
+    GET_PRODUCTS,
+    PRODUCTS_ERROR,
 } from '../types'
 
 const ProductState = props => {
     const initialState = {
-        contacts: null,
-        current: null,
-        filtered: null,
+        products: null,
+        loading: true,
         error: null,
     };
 
     const [state, dispatch] = useReducer(productReducer, initialState);
 
-    const getContacts = async () => {
+    const getProducts = async () => {
         try {
+            state.loading = true;
             const res = await axios.get('/api/products');
-            dispatch({ type: GET_CONTACTS, payload: res.data });
+            dispatch({ type: GET_PRODUCTS, payload: res.data });
         } catch (err) {
-            dispatch({ type: CONTACT_ERROR, payload: err.msg });
+            dispatch({ type: PRODUCTS_ERROR, payload: err.msg });
         }
     };
 
-    const clearContacts = () => {
-        dispatch({ type: CLEAR_CONTACTS });
-    };
-
-    // Add Contact
-    const addContact = async contact => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        try {
-            const res = await axios.post('/api/contacts', contact, config);
-            dispatch({ type: ADD_CONTACT, payload: res.data });
-        } catch (err) {
-            dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
-        }
-    };
-
-    // Delete Contact
-    const deleteContact = async id => {
-        try {
-            await axios.delete(`/api/contacts/${id}`);
-            dispatch({ type: DELETE_CONTACT, payload: id });
-        } catch (err) {
-            dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
-        }
-    };
-
-    // Update Contact
-    const updateContact = async contact => {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        try {
-            const res = await axios.put(`/api/contacts/${contact._id}`, contact, config);
-            dispatch({ type: UPDATE_CONTACT, payload: res.data });
-        } catch (err) {
-            dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
-        }
-    };
-    
-
-    // Set Current Contact
-    const setCurrent = contact => {
-        dispatch({ type: SET_CURRENT, payload: contact });
-    };
-
-    // Clear Current Contact
-    const clearCurrent = () => {
-        dispatch({ type: CLEAR_CURRENT, payload: state.current });
-    };
-
-
-    // Filter Contacts
-    const filterContacts = text => {
-        dispatch({ type: FILTER_CONTACTS, payload: text });
-    };
-
-    // Clear Filter
-    const clearFilter = () => {
-        dispatch({ type: CLEAR_FILTER });
-    };
 
     return (
         <ProductContext.Provider
             value = {{
-                contacts: state.contacts,
-                current: state.current,
-                filtered: state.filtered,
+                products: state.products,
                 error: state.error,
-                getContacts,
-                addContact,
-                deleteContact,
-                setCurrent,
-                clearCurrent,
-                updateContact,
-                filterContacts,
-                clearFilter,
-                clearContacts,
+                loading: state.loading,
+                getProducts,
             }}
         >
             

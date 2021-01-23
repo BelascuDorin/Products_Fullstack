@@ -43,8 +43,8 @@ const Navbar = ({ title, icon}) => {
             <div className="col-md-2">
                 <img style={{marginTop: "10px", marginBottom:"10px", width: "300px", width: "100%"}} src={img}></img>
             </div>
-            <div className="col-md-2"></div>
-            <div className="col-md-3">
+            <div className="col-md-1"></div>
+            <div className="col-md-4">
                 {isAuthenticated ? authLinks : guessLinks}
             </div>
         </div>
