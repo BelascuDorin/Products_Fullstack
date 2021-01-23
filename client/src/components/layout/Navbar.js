@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/products/productContext';
+import img from './never_look_back_navbar.jpg'
+
 
 const Navbar = ({ title, icon}) => {
     const authContext = useContext(AuthContext);
@@ -17,13 +19,10 @@ const Navbar = ({ title, icon}) => {
 
     const authLinks = (
         <Fragment>
-            <li>Hello {user && user.name}</li>
-            <li>
-                <a onClick={onLogout} href="#!">
-                    <i className="fas fa-sign-out-alt"></i> 
-                    <span className="hide-sm">Logout</span>
-                </a>
-            </li>
+            <a style={{marginTop: "10px", marginBottom:"10px"}} className="btn btn-round btn-dark" onClick={onLogout} href="#!">
+                <i className="fas fa-sign-out-alt"></i> 
+                <span className="hide-sm">Logout</span>
+            </a>
         </Fragment>
     );
 
@@ -39,13 +38,15 @@ const Navbar = ({ title, icon}) => {
     );
 
     return (
-        <div className="navbar bg-dark">
-            <h1>
-                <i className={icon}></i> {title}
-            </h1>
-            <ul>
+        <div className="row bg-white">
+            <div className="col-md-5"/>
+            <div className="col-md-2">
+                <img style={{marginTop: "10px", marginBottom:"10px", width: "300px", width: "100%"}} src={img}></img>
+            </div>
+            <div className="col-md-2"></div>
+            <div className="col-md-3">
                 {isAuthenticated ? authLinks : guessLinks}
-            </ul>
+            </div>
         </div>
     )
 }
@@ -56,8 +57,8 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-    title: 'Contact Keeper',
-    icon: 'fas fa-id-card-alt'
+    title: 'Products',
+    icon: 'fas fa-archive'
 }
 
 export default Navbar
