@@ -1,21 +1,23 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import ContactContext from '../../context/contacts/contactContext';
+import ProductContext from '../../context/products/productContext';
 
-const ContactItem = ( {contact} ) => {
-    const contactContext = useContext(ContactContext);
-    const { deleteContact, setCurrent, clearCurrent } = contactContext;
+const ProductItem = ( {product} ) => {
+    const productContext = useContext(ProductContext);
+    const { deleteContact, setCurrent, clearCurrent } = productContext;
 
-    const { _id, name, email, phone, type } = contact;
+    const { description, price } = product;
 
     const onDelete = () => {
-        deleteContact(_id);
+        //deleteContact(_id);
         clearCurrent();
     };
 
     return (
         <div className="card bg-light">
-            <h3 className="text-primary text-left">
+            {description}
+            {price}
+            {/* <h3 className="text-primary text-left">
                 {name}{' '} 
                 <span style={{ float: 'right' }}
                     className={'badge ' + (type === 'professional' ? 'badge-success' : 'badge-primary')}
@@ -36,15 +38,15 @@ const ContactItem = ( {contact} ) => {
                 )}
             </ul>
             <p>
-                <button className="btn btn-dark btn-sn" onClick={()=> setCurrent(contact)}>Edit</button>
-                <button className="btn btn-danger btn-sn" onClick={onDelete} >Delete</button>
-            </p>
+                <button className="btn btn-dark btn-sn" onClick={()=> setCurrent(product)}>Edit</button>
+                <button className="btn btn-danger btn-sn" onClick={onDelete} >Delete</button> */}
+            {/* </p> */}
         </div>
     )
 };
 
-ContactItem.propTypes = {
+ProductItem.propTypes = {
     contact: PropTypes.object.isRequired,
 }
 
-export default ContactItem
+export default ProductItem

@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import ContactContext from './contactContext';
-import contactReducer from './contactReducer';
+import ProductContext from './productContext';
+import productReducer from './productReducer';
 import {
     GET_CONTACTS,
     ADD_CONTACT,
@@ -15,7 +15,7 @@ import {
     CLEAR_CONTACTS,
 } from '../types'
 
-const ContactState = props => {
+const ProductState = props => {
     const initialState = {
         contacts: null,
         current: null,
@@ -23,14 +23,14 @@ const ContactState = props => {
         error: null,
     };
 
-    const [state, dispatch] = useReducer(contactReducer, initialState);
+    const [state, dispatch] = useReducer(productReducer, initialState);
 
     const getContacts = async () => {
         try {
-            const res = await axios.get('/api/contacts');
+            const res = await axios.get('/api/products');
             dispatch({ type: GET_CONTACTS, payload: res.data });
         } catch (err) {
-            dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+            dispatch({ type: CONTACT_ERROR, payload: err.msg });
         }
     };
 
@@ -103,7 +103,7 @@ const ContactState = props => {
     };
 
     return (
-        <ContactContext.Provider
+        <ProductContext.Provider
             value = {{
                 contacts: state.contacts,
                 current: state.current,
@@ -122,8 +122,8 @@ const ContactState = props => {
         >
             
             { props.children }
-        </ContactContext.Provider>
+        </ProductContext.Provider>
     )
 }
 
-export default ContactState;
+export default ProductState;
