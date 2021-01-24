@@ -6,6 +6,8 @@ import {
 } from '../types'
 
 const productReducer = (state, action) => {
+    const productsPerPage = 6;
+
     switch(action.type){
         case GET_PRODUCTS:
             return{
@@ -24,7 +26,7 @@ const productReducer = (state, action) => {
             return{
                 ...state,
                 currentPage: state.currentPage + 1,
-                currentProducts: state.totalProducts.slice(0, (state.currentPage + 1) * 6),
+                currentProducts: state.totalProducts.slice(0, (state.currentPage + 1) * productsPerPage),
             }
 
         case PRODUCTS_ERROR:

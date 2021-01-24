@@ -20,8 +20,8 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-// @route    POST api/contacts
-// @desc     Add a contact
+// @route    POST api/products
+// @desc     Add a products
 // @access   Private
 router.post(
     '/', 
