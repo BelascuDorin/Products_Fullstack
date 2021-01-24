@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@font-face {
+  font-family: "Geomanist";
+  src: local("Geomanist"),
+    url(./assets/fonts/geomanist-regular-webfont.ttf) format("truetype");
+}
 
 /* Global Styles */
 :root {
@@ -16,7 +20,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Geomanist", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -34,10 +38,6 @@ a:hover {
 
 ul {
   list-style: none;
-}
-
-img {
-  width: 100%;
 }
 
 /* Utilities */
@@ -450,4 +450,23 @@ table th {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 100%;
+}
+
+.products-list {
+  margin-top: 30px;
+}
+
+.products-load-more {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loading-spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

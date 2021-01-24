@@ -1,15 +1,14 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import spinner from '../../assets/images/spinner.gif';
 
 const Spinner = () => {
     return (
-    <Fragment>
+    <div className="container loading-spinner">
         <img 
             src={spinner} 
             alt="Loading..." 
-            style={{width: '200px', margin: 'auto', display: 'block'}}
         />
-    </Fragment>
+    </div>
     );
 }
 

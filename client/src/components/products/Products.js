@@ -23,20 +23,24 @@ const Products = () => {
 
     return (
         <Fragment>
-            <div className="container">
-                <div className="card-columns">
-                    {products !== null && !loading ? 
-                        (
+            { products !== null && !loading ? (
+                <Fragment>
+                <div className="container products-list">
+                    <div className="card-columns">
+                        {
                             products.map( (product, index) => {
                                 return <ProductItem key={product._id} product={product}/>
-                            })
-                        ) 
-                        : 
-                        (<Spinner/>)
-                    }
+                        }   )
+                        }
+                    </div>
                 </div>
-            </div>
-            <button className="btn btn-dark" onClick={onLoadMore}>Load More</button>
+                <div className="products-load-more">
+                    <button className="btn btn-light" onClick={onLoadMore}>Load More</button>
+                </div>
+                </Fragment>
+                ) 
+                : (<Spinner/>)
+            }
         </Fragment>
     )
 }
