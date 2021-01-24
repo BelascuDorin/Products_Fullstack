@@ -32,7 +32,7 @@ const App = () => {
     <AuthState>
       <ProductState>
         <AlertState>
-          <div className={isBackgroundOn ? "backgroundOn" : ""}>
+          <div className={isBackgroundOn ? "background-on" : ""}>
           <Router>
             <Fragment>
               <Navbar />

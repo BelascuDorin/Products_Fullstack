@@ -2,7 +2,7 @@ import React, { Fragment, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import ProductContext from '../../context/products/productContext';
-import neverLookBack from './never_look_back_navbar.jpg'
+import neverLookBack from '../../assets/images/never_look_back_navbar.jpg'
 
 
 const Navbar = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
 
     const authLinks = (
         <Fragment>
-            <a style={{marginTop: "10px", marginBottom:"10px"}} className="btn btn-round btn-dark" onClick={onLogout} href="#!">
+            <a className="btn btn-round btn-dark navbar-button" onClick={onLogout} href="#!">
                 <i className="fas fa-sign-out-alt"></i> 
                 <span className="hide-sm">Logout</span>
             </a>
@@ -27,12 +27,8 @@ const Navbar = () => {
 
     const guessLinks = (
         <Fragment>
-            <li>
-                <Link to='/register'>Register</Link>
-            </li>
-            <li>
-                <Link to='/login'>Login</Link>
-            </li>
+            <Link className="btn btn-round btn-dark navbar-button" to='/login'>Login</Link>
+            <Link className="btn btn-round btn-dark navbar-button" to='/register'>Register</Link>
         </Fragment>
     );
 
@@ -40,7 +36,7 @@ const Navbar = () => {
         <div className="row bg-white">
             <div className="col-md-5"/>
             <div className="col-md-2">
-                <img style={{marginTop: "10px", marginBottom:"10px", width: "100%"}} alt={"never look back"} src={neverLookBack}></img>
+                <img className="navbar-never-look-back" alt={"never look back"} src={neverLookBack}></img>
             </div>
             <div className="col-md-1"></div>
             <div className="col-md-4">
