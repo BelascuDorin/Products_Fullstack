@@ -43,15 +43,13 @@ const App = () => {
                   <Route 
                     exact path='/register' 
                     render={(props) => {
-                      setBackground(true)
-                      return <Register {...props}/>
+                      return <Register {...props} setBackground={setBackground}/>
                     }}
                   />
                   <Route 
                     exact path='/login' 
-                    render={(props) => {
-                      setBackground(true)
-                      return <Login {...props}/>
+                    render={(props) => {  
+                      return <Login {...props} setBackground={setBackground}/>
                     }}
                   />
                 </Switch>
