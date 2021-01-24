@@ -3,12 +3,11 @@ import Products from '../products/Products';
 //import ContactFilter from '../contacts/ContactFilter';
 import AuthContext from '../../context/auth/authContext';
 
-const Home = ( props ) => {
+const Home = () => {
     const authContext = useContext(AuthContext);
 
     useEffect(() => {
         authContext.loadUser();
-        console.log(props);
         // eslint-disable-next-line
     }, [])
 
