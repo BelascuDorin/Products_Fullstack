@@ -23,16 +23,18 @@ const Products = () => {
 
     return (
         <Fragment>
-            <div className="products-list">
-                {products !== null && !loading ? 
-                    (
-                        products.map( (product, index) => {
-                            return <ProductItem key={product._id} product={product}/>
-                        })
-                    ) 
-                    : 
-                    (<Spinner/>)
-                }
+            <div className="container">
+                <div className="card-columns">
+                    {products !== null && !loading ? 
+                        (
+                            products.map( (product, index) => {
+                                return <ProductItem key={product._id} product={product}/>
+                            })
+                        ) 
+                        : 
+                        (<Spinner/>)
+                    }
+                </div>
             </div>
             <button className="btn btn-dark" onClick={onLoadMore}>Load More</button>
         </Fragment>

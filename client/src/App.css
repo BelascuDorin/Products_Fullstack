@@ -394,21 +394,6 @@ table th {
 /*            */
 /* CUSTOM CSS */
 /*            */
-
-.products-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.product-item {
-  min-width: 32%;
-  max-width: 32%;
-  height: 100%;
-  border-radius: 1.5rem;
-  margin-left: auto;
-}
-
 .backgroundOn {
   background: url("http://web3canvas.com/wp-content/uploads/2014/02/littlevisuals-high-quality-hd-banner-images-stock-photos-free-laptop-topview-download.jpg")
     no-repeat;
@@ -417,4 +402,14 @@ table th {
   min-height: 100%;
   position: fixed;
   top: 0;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border: none;
+}
+
+.card .text-muted i {
+  margin: 0 10px;
 }

@@ -7,7 +7,7 @@ const ProductItem = ( {product} ) => {
 
     return (
         <Fragment>
-            <div className="card bg-light product-item">
+            <div className="card bg-light">
                 <img className="card-img-top" src={card} alt={"Card"}></img>
                 <div className="card-body">
                     <h2>{name}</h2>
