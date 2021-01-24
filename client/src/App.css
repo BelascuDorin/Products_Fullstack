@@ -24,7 +24,7 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--light-color);
   text-decoration: none;
 }
 
@@ -394,7 +394,7 @@ table th {
 /*            */
 /* CUSTOM CSS */
 /*            */
-.backgroundOn {
+.background-on {
   background: url("http://web3canvas.com/wp-content/uploads/2014/02/littlevisuals-high-quality-hd-banner-images-stock-photos-free-laptop-topview-download.jpg")
     no-repeat;
   background-size: cover;
@@ -407,9 +407,47 @@ table th {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border: none;
+  border: 0 solid transparent;
+  border-radius: 25px;
+}
+
+.card-footer:last-child {
+  border-radius: 0 0 25px 25px;
+}
+
+.card-img,
+.card-img-top {
+  border-radius: 25px 25px 0 0;
+}
+
+.card-no-padding {
+  padding: 0;
 }
 
 .card .text-muted i {
   margin: 0 10px;
+}
+
+.register-form {
+  margin-top: 10%;
+  width: 40%;
+  margin-left: 60%;
+}
+
+.login-form {
+  margin-top: 10%;
+  width: 40%;
+  margin-left: 60%;
+}
+
+.navbar-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  min-width: 100px;
+}
+
+.navbar-never-look-back {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
 }
