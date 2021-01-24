@@ -1,20 +1,19 @@
 import React, { Fragment, useContext} from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
-import ContactContext from '../../context/products/productContext';
-import img from './never_look_back_navbar.jpg'
+import ProductContext from '../../context/products/productContext';
+import neverLookBack from './never_look_back_navbar.jpg'
 
 
-const Navbar = ({ title, icon}) => {
+const Navbar = () => {
     const authContext = useContext(AuthContext);
-    const { isAuthenticated, logout, user} = authContext;
+    const { isAuthenticated, logout} = authContext;
 
-    const contactContext = useContext(ContactContext);
+    const product = useContext(ProductContext);
 
     const onLogout = () => {
         logout();
-        contactContext.clearContacts();
+        product.clearProducts();
     }
 
     const authLinks = (
@@ -41,7 +40,7 @@ const Navbar = ({ title, icon}) => {
         <div className="row bg-white">
             <div className="col-md-5"/>
             <div className="col-md-2">
-                <img style={{marginTop: "10px", marginBottom:"10px", width: "300px", width: "100%"}} src={img}></img>
+                <img style={{marginTop: "10px", marginBottom:"10px", width: "100%"}} alt={"never look back"} src={neverLookBack}></img>
             </div>
             <div className="col-md-1"></div>
             <div className="col-md-4">
@@ -49,16 +48,6 @@ const Navbar = ({ title, icon}) => {
             </div>
         </div>
     )
-}
-
-Navbar.propTypes = {
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.string,
-}
-
-Navbar.defaultProps = {
-    title: 'Products',
-    icon: 'fas fa-archive'
 }
 
 export default Navbar

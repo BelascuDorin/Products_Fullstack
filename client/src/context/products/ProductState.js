@@ -4,12 +4,13 @@ import ProductContext from './productContext';
 import productReducer from './productReducer';
 import {
     GET_PRODUCTS,
+    CLEAR_PRODUCTS,
     PRODUCTS_ERROR,
 } from '../types'
 
 const ProductState = props => {
     const initialState = {
-        products: null,
+        products: null, 
         loading: true,
         error: null,
     };
@@ -26,6 +27,9 @@ const ProductState = props => {
         }
     };
 
+    const clearProducts = () => {
+        dispatch({ type: CLEAR_PRODUCTS });
+    };
 
     return (
         <ProductContext.Provider
@@ -34,6 +38,7 @@ const ProductState = props => {
                 error: state.error,
                 loading: state.loading,
                 getProducts,
+                clearProducts,
             }}
         >
             

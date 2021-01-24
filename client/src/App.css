@@ -408,3 +408,13 @@ table th {
   border-radius: 1.5rem;
   margin-left: auto;
 }
+
+.backgroundOn {
+  background: url("http://web3canvas.com/wp-content/uploads/2014/02/littlevisuals-high-quality-hd-banner-images-stock-photos-free-laptop-topview-download.jpg")
+    no-repeat;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+}

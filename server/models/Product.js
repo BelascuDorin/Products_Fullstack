@@ -5,6 +5,10 @@ const ProductSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
+    name: {
+        type: String,
+        required: true
+    },
     description: {
         type: String,
         required: true

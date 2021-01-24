@@ -37,11 +37,12 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const { description, price} = req.body;
+        const {name, description, price} = req.body;
 
         try{
             const newProduct = new Product({
                 user: req.user.id,
+                name: name,
                 description: description,
                 price: price
             });

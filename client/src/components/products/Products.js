@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ProductItem from './ProductItem';
 import ProductContext from '../../context/products/productContext';
 import Spinner from '../layout/Spinner';
@@ -22,7 +22,7 @@ const Products = () => {
             {products !== null && !loading ? 
                 (
                     products.map( (product, index) => {
-                        return <ProductItem key={product._id} product={product} index={index}/>
+                        return <ProductItem key={product._id} product={product}/>
                     })
                 ) 
                 : 
